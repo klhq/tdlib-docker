@@ -189,6 +189,7 @@ jobs:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           repository: klhq/tdlib
+          short-description: Prebuilt multi-arch TDLib (libtdjson.so) images for Debian and Alpine. Skip the TDLib compile.
           readme-filepath: ./README.md
 
       - name: Warn when Docker Hub description update is forbidden

@@ -7,16 +7,33 @@ if [ -n "$(git status --porcelain)" ]; then
     exit 1
 fi
 
-# Ensure merge=ours driver is configured (needed for README.md)
+# Ensure git configs are in place
 git config merge.ours.driver true
+git config checkout.defaultRemote origin
 
-# 1. Fetch upstream
+# Ensure upstream remote is configured
+if ! git remote get-url upstream &>/dev/null; then
+    echo "==> Configuring upstream remote (https://github.com/tdlib/td.git)..."
+    git remote add upstream https://github.com/tdlib/td.git
+fi
+
+# 1. Fetch both remotes and incorporate published build changes first
+echo "==> Fetching origin..."
+git fetch --no-tags origin
+git checkout build
+git merge --ff-only origin/build
+
+# Fetch upstream
 echo "==> Fetching upstream..."
 git fetch upstream
 
 # 2. Fast-forward master to upstream/master
 echo "==> Updating master..."
-git checkout master
+if ! git show-ref --verify --quiet refs/heads/master; then
+    git checkout --track origin/master
+else
+    git checkout master
+fi
 git merge --ff-only upstream/master
 
 # 3. Merge master into build (README auto-resolved via merge=ours)
