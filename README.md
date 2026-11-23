@@ -1,6 +1,11 @@
 # TDLib Docker Image
 
-![TDLib Version](https://img.shields.io/badge/TDLib-1.8.70-blue) [![Docker Pulls](https://img.shields.io/docker/pulls/klhq/tdlib)](https://hub.docker.com/r/klhq/tdlib) [![Image Size](https://img.shields.io/docker/image-size/klhq/tdlib/latest)](https://hub.docker.com/r/klhq/tdlib) [![Deployment](https://github.com/klhq/tdlib-docker/actions/workflows/build-and-push.yml/badge.svg)](https://github.com/klhq/tdlib-docker/actions/workflows/build-and-push.yml)
+<p align="center">
+  <a href="https://core.telegram.org/tdlib"><img class="inline" alt="TDLib version" src="https://img.shields.io/badge/TDLib-1.8.70-blue"></a>
+  <a href="https://hub.docker.com/r/klhq/tdlib"><img class="inline" alt="Docker pulls" src="https://img.shields.io/docker/pulls/klhq/tdlib"></a>
+  <a href="https://hub.docker.com/r/klhq/tdlib"><img class="inline" alt="Image size" src="https://img.shields.io/docker/image-size/klhq/tdlib/latest"></a>
+  <a href="https://github.com/klhq/tdlib-docker/actions/workflows/build-and-push.yml"><img class="inline" alt="Deployment" src="https://github.com/klhq/tdlib-docker/actions/workflows/build-and-push.yml/badge.svg"></a>
+</p>
 
 Prebuilt, multi-arch Docker images of [TDLib (Telegram Database Library)](https://core.telegram.org/tdlib). Drop `libtdjson.so` into your bot, client, or service and skip the 30–60 minute TDLib compile.
 
